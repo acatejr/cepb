@@ -2,22 +2,13 @@ defmodule CardsTest do
   use ExUnit.Case
   doctest Cards
 
-  # test "greets the world" do
-  #   assert Cards.hello() == :world
-  # end
-
-  test "card is in deck" do
-    deck = Cards.create_deck
-    card = "Ace of Spades"
-
-    assert Cards.contains?(deck, card) == true
+  test "create_deck maes 20 cards" do
+    deck_length = length((Cards.create_deck))
+    assert deck_length == 52
   end
 
-  test "card is not in deck" do
+  test "shuffling a deck randomizes it" do
     deck = Cards.create_deck
-    card = "Ace of Spikes"
-
-    assert Cards.contains?(deck, card) == false
+    assert deck != Cards.shuffle(deck)
   end
-
 end
