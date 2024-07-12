@@ -8,6 +8,7 @@ defmodule Cards do
   Pattern matching is elixir's replacement for variable assignment.
   Pattern matching is used anytime = is used.
   {} are tuples in elixir
+  Elixir - trying to avoid writing if statements.
   """
 
   def deal(deck, hand_size) do
@@ -46,4 +47,22 @@ defmodule Cards do
 
     Enum.member?(deck, card)
   end
+
+  def save(deck, filename) do
+    binary = :erlang.term_to_binary(deck)
+    File.write(filename, binary)
+  end
+
+  def load(filename) do
+
+    {status, binary} = File.read(filename)
+
+    # This is pattern matching
+    case status do
+      :ok -> :erlang.binary_to_term(binary)
+      :error -> "#{filename} file does not exist."
+    end
+
+  end
+
 end
