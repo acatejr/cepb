@@ -1,0 +1,5 @@
+%{
+  "egd": {:git, "https://github.com/erlang/egd.git", "1cea959544de7dd40a3284ba571a58939de57616", []},
+  "percept": {:git, "https://github.com/erlang/egd.git", "1cea959544de7dd40a3284ba571a58939de57616", []},
+  "rebar3_elixir": {:hex, :rebar3_elixir, "0.2.4", "bf1ad381e15e5812ef72d98ef7cc4b3c1b4649938b8295991b36fbc4ee1b5169", [:rebar3], [], "hexpm", "eb8e816e554e2ae95a711f4a1c15268be11b9af50a346de8f055b95bcac03f58"},
+}
