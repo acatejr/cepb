@@ -1,13 +1,13 @@
 services:
 
-  cepb:
-    container_name: cepb
-    image: elixir:1.3.4
-    # build: .
+  discuss:
+    build: .
     volumes:
-      - $PWD:/cepb
+      - $PWD:/discuss
     tty: true
     stdin_open: true
+    ports:
+      - 4000:4000
     
   postgres:    
     image: postgres:latest
@@ -15,5 +15,11 @@ services:
     volumes:
       - pgdata:/var/lib/postgresql/data
 
+  admin:
+    image: adminer
+    depends_on: 
+      - postgres
+    ports:
+      - 8080:8080
 volumes:
   pgdata:
