@@ -6,4 +6,8 @@ defmodule DiscussWeb.PageController do
     # so skip the default app layout.
     render(conn, :index, layout: false)
   end
+
+  def about(conn, _params) do
+    render(conn, :about, layout: false)
+  end
 end

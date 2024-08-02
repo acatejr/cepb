@@ -1,4 +1,4 @@
-FROM elixir:latest
+FROM elixir:1.17.2
 
 # Dependencies
 RUN apt update \
@@ -6,7 +6,7 @@ RUN apt update \
   && apt install -y bash curl git build-essential inotify-tools
 
 # Phoenix
-RUN mix local.hex --force 
+RUN mix local.hex --force
 RUN mix archive.install hex phx_new --force
 
 # RUN mix archive.install --force hex phx_new ${PHOENIX_VERSION}
