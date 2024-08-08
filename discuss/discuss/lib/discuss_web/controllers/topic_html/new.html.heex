@@ -1,0 +1,8 @@
+<.form :let={form} for={@changeset}, action={~p"/topics"}>
+
+  <div class="form-group">
+    <.input field={form[:title]} />
+  </div>
+
+  <button type="submit" class="btn, btn-primary">Submit</button>
+</.form>

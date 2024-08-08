@@ -6,7 +6,7 @@ defmodule DiscussWeb.Router do
     plug :fetch_session
     plug :fetch_live_flash
     plug :put_root_layout, html: {DiscussWeb.Layouts, :root}
-    plug :protect_from_forgery
+    # plug :protect_from_forgery
     plug :put_secure_browser_headers
   end
 
@@ -20,7 +20,16 @@ defmodule DiscussWeb.Router do
     get "/", PageController, :index
     get "/about", PageController, :about
     get "/topics/new", TopicController, :new
+    post "/topics", TopicController, :create
     # resources "/topics", TopicController
+    resources "/users", UserController
+
+    # live "/users", UserLive.Index, :index
+    # live "/users/new", UserLive.Index, :new
+    # live "/users/:id/edit", UserLive.Index, :edit
+
+    # live "/users/:id", UserLive.Show, :show
+    # live "/users/:id/show/edit", UserLive.Show, :edit
   end
 
   # Other scopes may use custom stacks.
